@@ -1,4 +1,3 @@
-
 <?php
     $server = 'localhost'; // 127.0.0.1
     $username = 'root';
@@ -13,22 +12,22 @@
         die("Connection failed: " . $con->connect_error);
     }
 
-    // Create a Table
-    $sql = 'CREATE TABLE users (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        firstname VARCHAR(30) NOT NULL,
-        lastname VARCHAR(30) NOT NULL,
-        email VARCHAR(50) NOT NULL UNIQUE,
-        gender CHAR(1)NOT NULL,
-        Date_of_birth VARCHAR(8) NOT NULL
-    )';
+    // Query
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $email = $_POST['email'];
+    $gender = $_POST['Gender'] ;
+    $DOB = $_POST['date_of_birth'] ;
+
+    $sql = "INSERT INTO users (firstname, lastname, email) 
+    VALUES ('$firstname', '$lastname', '$email')";
 
     $result = $con->query($sql);
 
     if ($result === true) {
-        echo 'Table created successfully';
+        echo 'Record inserted successfully';
     } else {
-        echo 'Error creating creating2: ' . $con->error;
+        echo 'Error inserting record: ' . $con->error;
     }
 
     // Close connection

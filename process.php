@@ -16,9 +16,11 @@
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $email = $_POST['email'];
+    $gender = $_POST['gender'];
+    $Date_of_birth = $_POST['Date_of_birth']
 
-    $sql = "INSERT INTO users (firstname, lastname, email) 
-    VALUES ('$firstname', '$lastname', '$email')";
+    $sql = "INSERT INTO users (firstname, lastname, email, gender, Date_of_birth) 
+    VALUES ('$firstname', '$lastname', '$email', '$gender', '$Date_of_birth')";
 
     $result = $con->query($sql);
 
